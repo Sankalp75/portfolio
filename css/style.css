@@ -434,43 +434,49 @@ section {
 
 .project-meta h3 {
     font-size: 2rem;
-    margin-bottom: 0;
-}
-
-.meta-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 12px;
 }
 
 .project-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Start slightly lower for pop-up effect */
+    transform: translate(-50%, -20%);
+    opacity: 0;
+    z-index: 10;
+
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    color: var(--text-main);
-    font-size: 0.85rem;
-    font-weight: 500;
+    padding: 12px 32px;
+    /* Larger clickable area */
 
-    /* Initial Hidden State */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Reveal on Card Hover */
+/* Reveal Center on Hover */
 .project-card:hover .project-link {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    /* Enable clicks */
 }
 
 .project-link i {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     transition: transform 0.3s ease;
 }
 
@@ -478,9 +484,9 @@ section {
     background: var(--primary);
     border-color: var(--primary);
     color: var(--bg-dark);
-    box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
-    /* Slight lift on button hover specifically */
-    transform: translateY(-2px);
+    transform: translate(-50%, -55%);
+    /* Slight lift on hover */
+    box-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
 }
 
 .project-link:hover i {
