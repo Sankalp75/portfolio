@@ -445,23 +445,42 @@ section {
 }
 
 .project-link {
-    font-size: 0.95rem;
-    color: var(--primary);
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    transition: var(--transition);
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    /* Initial Hidden State */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reveal on Card Hover */
+.project-card:hover .project-link {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-link i {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     transition: transform 0.3s ease;
 }
 
 .project-link:hover {
-    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+    /* Slight lift on button hover specifically */
+    transform: translateY(-2px);
 }
 
 .project-link:hover i {
