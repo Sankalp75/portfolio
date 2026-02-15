@@ -434,7 +434,38 @@ section {
 
 .project-meta h3 {
     font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 12px;
+}
+
+.project-link {
+    font-size: 0.95rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.project-link i {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    color: #fff;
+}
+
+.project-link:hover i {
+    transform: translate(2px, -2px);
 }
 
 .tags {
